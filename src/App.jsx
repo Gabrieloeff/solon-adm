@@ -19,6 +19,9 @@ import logo from './assets/logo_solon.png'
 import logoSolon from './assets/solon.png';
 
 function App() {
+   const API_BASE = import.meta.env.DEV
+    ? (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000')
+    : '';
   const [isVideoOpen, setIsVideoOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [form, setForm] = useState({ nome: '', email: '', mensagem: '' });
@@ -32,25 +35,27 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/send`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
-    });
+      const res = await fetch(`${API_BASE}/api/send`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
 
-    const data = await res.json();
+    const data = await res.json().catch(() => ({}));
 
-    if (data.success) {
-      alert('Mensagem enviada com sucesso!');
-      setForm({ nome: '', email: '', mensagem: '' });
+    if (res.ok && data?.ok) {
+      alert("Mensagem enviada com sucesso!");
+      setForm({ nome: "", email: "", mensagem: "" });
     } else {
-      alert('Erro ao enviar mensagem.');
+      console.error("Resposta do servidor:", res.status, data);
+      alert("Erro ao enviar mensagem.");
     }
   } catch (error) {
-    console.error('Erro:', error);
-    alert('Erro de conexão com o servidor.');
+    console.error("Erro:", error);
+    alert("Erro de conexão com o servidor.");
   }
 };
+
 
   const services = [
       {
