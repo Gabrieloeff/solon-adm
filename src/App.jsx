@@ -114,6 +114,9 @@ const handleSubmit = async (e) => {
     { name: "Prefeitura de São João do Itaperiú", url: "https://soloncloud.web.app/transparency/saojoaodoitaperiu/dashboard" },
     { name: "Prefeitura de Antônio Carlos", url: "https://soloncloud.web.app/transparency/antoniocarlos/dashboard" },
     { name: "Prefeitura de Palma Sola", url: "https://soloncloud.web.app/transparency/palmasola/dashboard" },
+    { name: "Prefeitura de Nova Veneza", url: "https://soloncloud.web.app/transparency/novaveneza/dashboard" },
+    { name: "Prefeitura de Leoberto Leal", url: "https://soloncloud.web.app/transparency/leobertoleal/dashboard" },
+    { name: "Prefeitura de Governador Celso Ramos", url: "https://soloncloud.web.app/transparency/govcelsoramos/dashboard" },
       ]
 
   const testimonials = [
@@ -545,12 +548,16 @@ const handleSubmit = async (e) => {
               <img src={logo} alt="Logo Solon" className="h-10 mx-auto mb-4" />
               <p className="text-gray-600 mb-4 text-center">
                 Apoio administrativo para uma gestão pública mais eficiente e transparente.
-              </p>
+                            </p>
             </div>
            
           </div>
           <div className="border-t border-gray-300 mt-8 pt-8 text-center text-gray-500">
-            <p>&copy; 2025 Solon - Apoio Administrativo. Todos os direitos reservados.</p>
+            <p>
+  &copy; 2026 - Solon Apoio Administrativo Ltda. - CNPJ: 48.391.060/0001-09.
+  <br />
+  Todos os direitos reservados.
+</p>
           </div>
         </div>
       </footer>
